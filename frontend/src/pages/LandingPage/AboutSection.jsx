@@ -1,15 +1,15 @@
 import React from "react";
 // import about from '../../assets/about.jpg';
-import about from "./../../assetsdup/Banking_about.jpg";
+import about from "./../../assets/group.jpeg";
 
 const AboutSection = () => {
   return (
     <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6">
+        <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
           Why Choose Us?
         </h2>
-        <p className="text-lg md:text-xl text-gray-600 mb-8">
+        <p className="text-lg md:text-xl text-black mb-8">
           At our bank, we believe in making your money work for you. Whether
           you're an individual or part of a group, we provide solutions that
           help you invest and save with confidence. Join thousands who trust us

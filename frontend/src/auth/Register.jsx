@@ -1,36 +1,41 @@
-import React, { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
-import auth from '../assets/auth.png';
+import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import auth from "../assets/Authentication.jpg";
 
 const Register = () => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [role, setRole] = useState('borrower'); 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [role, setRole] = useState("borrower");
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
       //when deploying I changed the backedn path based on the backend path from where our backedn runs online
-      const response = await axios.post('https://bankapplication-hsep.onrender.com/api/users/register', {
-        name,
-        email,
-        password,
-        role,
-      });
+      const response = await axios.post(
+        "https://bankapplication-hsep.onrender.com/api/users/register",
+        {
+          name,
+          email,
+          password,
+          role,
+        }
+      );
 
       if (response.data.token) {
-        toast.success('Registration successful!', { position: toast.POSITION.TOP_RIGHT });
-        if (role === 'admin') navigate('/admin/dashboard');
-        else if (role === 'lender') navigate('/lender/dashboard');
-        else navigate('/borrower/dashboard');
+        toast.success("Registration successful!", {
+          position: toast.POSITION.TOP_RIGHT,
+        });
+        if (role === "admin") navigate("/admin/dashboard");
+        else if (role === "lender") navigate("/lender/dashboard");
+        else navigate("/borrower/dashboard");
       }
     } catch (error) {
-      console.error('Registration failed', error);
+      console.error("Registration failed", error);
     }
   };
 
@@ -40,10 +45,14 @@ const Register = () => {
         <img src={auth} alt="Register" className="object-cover w-full h-full" />
       </div>
       <div className="md:w-1/2 w-full flex flex-col justify-center px-8 md:px-16 bg-white">
-        <h2 className="text-3xl font-bold mb-6 text-center md:text-left">Create an Account</h2>
+        <h2 className="text-3xl font-bold mb-6 text-center md:text-left">
+          Create an Account
+        </h2>
         <form onSubmit={handleRegister}>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Full Name</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Full Name
+            </label>
             <input
               type="text"
               value={name}
@@ -53,7 +62,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Email
+            </label>
             <input
               type="email"
               value={email}
@@ -63,7 +74,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Password
+            </label>
             <input
               type="password"
               value={password}
@@ -73,7 +86,9 @@ const Register = () => {
             />
           </div>
           <div className="mb-4">
-            <label className="block text-gray-700 text-sm font-bold mb-2">Role</label>
+            <label className="block text-gray-700 text-sm font-bold mb-2">
+              Role
+            </label>
             <select
               value={role}
               onChange={(e) => setRole(e.target.value)}
@@ -88,7 +103,9 @@ const Register = () => {
           </button>
         </form>
         <div className="mt-4 text-center">
-          <Link to="/signin" className="text-indigo-600 hover:underline">Already have an account? Login</Link>
+          <Link to="/signin" className="text-indigo-600 hover:underline">
+            Already have an account? Login
+          </Link>
         </div>
         <ToastContainer />
       </div>

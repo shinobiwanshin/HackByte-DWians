@@ -1,11 +1,12 @@
 import React from "react";
 import investing from "../../assets/investing.jpg";
-import saving from "../../assetsdup/3D Tree Front View.png";
-import group from "../../assets/group.png";
+import saving from "../../assets/3Dtree.png";
+// import group from "../../assets/group.png";
+import group from "../../assets/group.jpg";
 
 const FeaturesSection = () => {
   return (
-    <section className="py-16 bg-gray-100">
+    <section className="py-16 bg-white">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
           Our Services
